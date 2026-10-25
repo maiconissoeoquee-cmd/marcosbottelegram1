@@ -1,0 +1,9 @@
+services:
+  marcos:
+    build: .
+    env_file: .env
+    environment:
+      - DB_PATH=/app/data/marcos.db
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

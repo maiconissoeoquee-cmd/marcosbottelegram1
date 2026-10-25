@@ -1,0 +1,18 @@
+# Render: serviço do tipo worker (polling). Workers costumam ser pagos; confira o preço atual.
+services:
+  - type: worker
+    name: marcos-telegram-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m app.main
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: RUN_MODE
+        value: polling
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
